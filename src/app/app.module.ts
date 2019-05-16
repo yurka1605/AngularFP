@@ -12,6 +12,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { SearchComponent } from './components/search/search.component';
 import { StarsComponent } from "./components/stars/stars.component";
 import { ProductService } from "./services/product-service";
+import {_404NotFoundComponent} from "./components/404NotFound/404NotFound.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductService } from "./services/product-service";
     NavbarComponent,
     ProductItemComponent,
     SearchComponent,
-    StarsComponent
+    StarsComponent,
+    _404NotFoundComponent
   ],
   imports: [
     BrowserModule,

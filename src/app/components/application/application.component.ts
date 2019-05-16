@@ -1,11 +1,10 @@
-import {Component, ViewEncapsulation} from '@angular/core';
+import { Component } from '@angular/core';
+import {Product, ProductService} from "../../services/product-service";
 
 @Component({
   selector: 'auction-application',
   templateUrl: './application.component.html',
   styleUrls: ['./application.component.scss'],
-
-  encapsulation: ViewEncapsulation.None
 })
 export class ApplicationComponent {
   products: Product[] = [];
