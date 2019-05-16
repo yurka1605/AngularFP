@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import { StarsComponent } from '../stars/stars';
+import { Component, Input } from '@angular/core';
+import { StarsComponent } from '../stars/stars.component';
 import { Product } from '../../services/product-service';
 
 @Component({

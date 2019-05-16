@@ -9,11 +9,11 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class StarsComponent implements OnInit{
   @Input() count: number = 5;
   @Input() rating: number = 0;
-  start: boolean[] = {};
+  stars: boolean[] = [];
 
   ngOnInit(): void {
-    this.count.forEach( (count, index) => {
-      this.start.push(index > this.rating);
-    });
+    for (let i = 1; i <= this.count; i++) {
+      this.stars.push(i > this.rating);
+    }
   }
 }
