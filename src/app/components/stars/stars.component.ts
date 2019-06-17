@@ -1,20 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { start } from 'repl';
 
 @Component({
-  selector: 'auction-start',
+  selector: 'app-auction-stars',
   templateUrl: './stars.component.html',
-  // styleUrls: [`
-  //       .starrating{ color: #d17581; }
-  // `],
+  styleUrls: ['./stars.component.scss'],
 })
-export class StarsComponent implements OnInit{
-  @Input() count: number = 5;
-  @Input() rating: number = 0;
+export class StarsComponent implements OnInit {
+  @Input() rating: number;
   stars: boolean[] = [];
 
   ngOnInit(): void {
-    for (let i = 1; i <= this.count; i++) {
-      this.stars.push(i > this.rating);
+    for (let i = 1; i <= this.rating; i++) {
+      this.stars.push(true);
     }
   }
 }

@@ -4,6 +4,4 @@ import { Component } from '@angular/core';
   selector: 'auction-footer',
   templateUrl: './footer.component.html'
 })
-export class FooterComponent {
-  title = 'AngularFP';
-}
+export class FooterComponent {}

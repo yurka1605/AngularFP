@@ -4,6 +4,4 @@ import { Component } from '@angular/core';
   selector: 'auction-carousel',
   templateUrl: './carousel.component.html'
 })
-export class CarouselComponent {
-  title = 'AngularFP';
-}
+export class CarouselComponent {}

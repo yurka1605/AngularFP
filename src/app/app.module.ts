@@ -10,18 +10,23 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { SearchComponent } from './components/search/search.component';
-import { StarsComponent } from "./components/stars/stars.component";
-import { ProductService } from "./services/product-service";
-import {_404NotFoundComponent} from "./components/404NotFound/404NotFound.component";
+import { StarsComponent } from './components/stars/stars.component';
+import { _404NotFoundComponent } from './components/404NotFound/404NotFound.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProductDetailComponent } from './components/product-details/product-details';
+
+import { ProductService } from './services/product-service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ApplicationComponent,
+    HomeComponent,
     CarouselComponent,
     FooterComponent,
     NavbarComponent,
     ProductItemComponent,
+    ProductDetailComponent,
     SearchComponent,
     StarsComponent,
     _404NotFoundComponent
