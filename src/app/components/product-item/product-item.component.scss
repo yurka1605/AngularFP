@@ -25,3 +25,14 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.cards{
+  z-index: 1;
+  margin: 5px;
+  padding: 5px;
+}
+.cards:hover {
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 5px 5px 10px 0px gray;
+}

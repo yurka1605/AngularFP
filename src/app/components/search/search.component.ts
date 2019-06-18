@@ -1,15 +1,24 @@
 import { ProductService } from './../../services/product-service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+export class SearchData {
+  title: string;
+  price: number;
+  category: string;
+}
 
 @Component({
   selector: 'app-auction-search',
   templateUrl: './search.component.html',
   styles: ['.cap{ text-transform: capitalize }'],
 })
+
 export class SearchComponent implements OnInit {
   public category: string[] = [];
+  public data: SearchData = new SearchData();
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private router: Router) {
   }
   ngOnInit() {
     const products = this.productService.getProducts();
@@ -17,5 +26,20 @@ export class SearchComponent implements OnInit {
       this.category.push(...item.categories);
     });
     this.category = this.category.filter((item, index) => this.category.indexOf(item) === index);
+  }
+
+  goToProduct(data: SearchData): void {
+    if (data) {
+      this.router.navigate(
+        ['search'],
+        {
+          queryParams: {
+            title: data.title,
+            price: data.price,
+            categories: data.category
+          }
+        }
+      );
+    }
   }
 }

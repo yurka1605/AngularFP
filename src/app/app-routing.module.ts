@@ -1,8 +1,9 @@
+import { ProductSearchComponent } from './components/product-item/product-search/product-search.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { _404NotFoundComponent } from './components/404NotFound/404NotFound.component';
-import { ProductDetailComponent } from './components/product-details/product-details';
+import { ProductDetailComponent } from './components/product-item/product-details/product-details';
 
 const routes: Routes = [
   {
@@ -13,7 +14,14 @@ const routes: Routes = [
     path: 'product-details/:id',
     component: ProductDetailComponent
   },
-  {path: '**', component: _404NotFoundComponent}
+  {
+    path: 'search',
+    component: ProductSearchComponent,
+  },
+  {
+    path: '**',
+    component: _404NotFoundComponent
+  },
 ];
 
 @NgModule({
@@ -22,6 +30,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}

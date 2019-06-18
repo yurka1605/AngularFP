@@ -60,9 +60,44 @@ const products = [
   }
 ];
 
+export interface ParamsProduct {
+  id?: number;
+  title?: string;
+  price?: number;
+  categories?: string;
+}
 
 export class ProductService {
+
   getProducts(): Array<Product> {
     return products.map(p => new Product(p.id, p.title, p.price, p.rating, p.description, p.categories));
+  }
+
+  private getProductsByOneParam(p: any, type: string, items: Product[]): Product[] | null {
+    return items.filter(item => item[type] === p);
+  }
+
+  async getProductsByParam(params: ParamsProduct): Promise<Product[] | Product | undefined> {
+    let items = await this.getProducts();
+    if (params.id) {
+      return this.getProductsByOneParam(params.id, 'id', items)[0];
+    } else {
+      if (params.title) {
+        items = this.getProductsByOneParam(params.title, 'title', items);
+      }
+
+      if (params.price) {
+        items = this.getProductsByOneParam(params.price, 'price', items);
+      }
+
+      if (params.categories) {
+        items = items.filter( item => {
+          return item.categories
+                .map(cat => cat.toLocaleLowerCase())
+                .indexOf(params.categories.toLocaleLowerCase()) !== -1;
+        });
+      }
+      return items;
+    }
   }
 }

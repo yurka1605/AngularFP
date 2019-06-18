@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,9 +14,10 @@ import { SearchComponent } from './components/search/search.component';
 import { StarsComponent } from './components/stars/stars.component';
 import { _404NotFoundComponent } from './components/404NotFound/404NotFound.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProductDetailComponent } from './components/product-details/product-details';
+import { ProductDetailComponent } from './components/product-item/product-details/product-details';
 
 import { ProductService } from './services/product-service';
+import { ProductSearchComponent } from './components/product-item/product-search/product-search.component';
 
 @NgModule({
   declarations: [
@@ -30,10 +32,12 @@ import { ProductService } from './services/product-service';
     SearchComponent,
     StarsComponent,
     _404NotFoundComponent,
+    ProductSearchComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     ProductService,
