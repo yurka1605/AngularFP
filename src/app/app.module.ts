@@ -29,7 +29,7 @@ import { ProductService } from './services/product-service';
     ProductDetailComponent,
     SearchComponent,
     StarsComponent,
-    _404NotFoundComponent
+    _404NotFoundComponent,
   ],
   imports: [
     BrowserModule,

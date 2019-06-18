@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { start } from 'repl';
 
 @Component({
   selector: 'app-auction-stars',

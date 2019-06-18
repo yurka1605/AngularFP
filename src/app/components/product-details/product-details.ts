@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class ProductDetailComponent {
     productTitle: string;
-    constructor(route: ActivatedRoute) {
-        this.productTitle = route.snapshot.params.prodTitle;
+    constructor(private _route: ActivatedRoute) {
+        this._route.params.subscribe(param => this.productTitle = param.id);
     }
 }
