@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,10 +14,11 @@ import { SearchComponent } from './components/search/search.component';
 import { StarsComponent } from './components/stars/stars.component';
 import { _404NotFoundComponent } from './components/404NotFound/404NotFound.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProductDetailComponent } from './components/product-item/product-details/product-details';
+import { ProductDetailComponent } from './components/product-item/product-details/product-details.component';
 
-import { ProductService } from './services/product-service';
+import { ProductService } from './services/product.service';
 import { ProductSearchComponent } from './components/product-item/product-search/product-search.component';
+import { PrivateChatComponent } from './components/private-chat/private-chat.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ProductSearchComponent } from './components/product-item/product-search
     StarsComponent,
     _404NotFoundComponent,
     ProductSearchComponent,
+    PrivateChatComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { ProductSearchComponent } from './components/product-item/product-search
     {
       provide: APP_BASE_HREF,
       useValue: '/'
-    }
+    },
+    Title,
   ],
   bootstrap: [AppComponent]
 })

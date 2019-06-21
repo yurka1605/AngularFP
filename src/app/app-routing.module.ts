@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { _404NotFoundComponent } from './components/404NotFound/404NotFound.component';
-import { ProductDetailComponent } from './components/product-item/product-details/product-details';
+import { ProductDetailComponent } from './components/product-item/product-details/product-details.component';
+import { PrivateChatComponent } from './components/private-chat/private-chat.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'product-details/:id',
-    component: ProductDetailComponent
+    component: ProductDetailComponent,
   },
   {
     path: 'search',
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: '**',
     component: _404NotFoundComponent
   },
+  {
+    path: 'chat/private/:id',
+    component: PrivateChatComponent,
+  }
 ];
 
 @NgModule({

@@ -1,6 +1,12 @@
-<h3>Search results:</h3>
-<section class="row">
-  <ng-template *ngFor="let item of searchProducts">
-    <app-auction-product-item [product]="items"></app-auction-product-item>
-  </ng-template>
-</section>
+<router-outlet></router-outlet>
+<ng-container *ngIf="searchProducts; else nothingFound">
+  <h3>Search results:</h3>
+  <section class="row">
+    <div class="col-md-4" *ngFor="let item of searchProducts">
+        <app-auction-product-item [product]="item"></app-auction-product-item>
+    </div>
+  </section>
+</ng-container>
+<ng-template #nothingFound>
+  <h2>Nothing found</h2>
+</ng-template>

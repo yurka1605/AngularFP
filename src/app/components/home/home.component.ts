@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Product, ProductService} from '../../services/product-service';
+import { Product, ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-auction-home',

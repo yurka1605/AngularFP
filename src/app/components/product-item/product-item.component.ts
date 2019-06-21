@@ -1,6 +1,6 @@
-import { Component, Input} from '@angular/core';
-import { Product } from '../../services/product-service';
-import { Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { Product } from '../../services/product.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-auction-product-item',
@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 export class ProductItemComponent {
   @Input() product: Product;
 
-  constructor(private _route: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
   addDetailsProduct(product) {
-    this._route.navigate(['product-details', product.id]);
+    this.router.navigate(['product-details', product.id], { relativeTo: this.route });
   }
 }

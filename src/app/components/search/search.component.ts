@@ -1,4 +1,4 @@
-import { ProductService } from './../../services/product-service';
+import { ProductService } from '../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -29,17 +29,13 @@ export class SearchComponent implements OnInit {
   }
 
   goToProduct(data: SearchData): void {
-    if (data) {
-      this.router.navigate(
-        ['search'],
-        {
-          queryParams: {
-            title: data.title,
-            price: data.price,
-            categories: data.category
-          }
-        }
-      );
+    if (JSON.stringify(data).length > 2) {
+      const queryParams = {
+        title: data.title,
+        price: data.price,
+        categories: data.category
+      };
+      this.router.navigate(['search'], { queryParams });
     }
   }
 }
