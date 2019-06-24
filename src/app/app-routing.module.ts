@@ -18,6 +18,12 @@ const routes: Routes = [
   {
     path: 'search',
     component: ProductSearchComponent,
+    children: [
+      {
+        path: 'product-details/:id',
+        component: ProductDetailComponent,
+      },
+    ],
   },
   {
     path: '**',

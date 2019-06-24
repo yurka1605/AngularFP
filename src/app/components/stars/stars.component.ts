@@ -10,7 +10,7 @@ export class StarsComponent implements OnInit {
   stars: boolean[] = [];
 
   ngOnInit(): void {
-    for (let i = 1; i <= this.rating; i++) {
+    for (let i = 1; i - 0.5 <= this.rating; i++) {
       this.stars.push(true);
     }
   }
