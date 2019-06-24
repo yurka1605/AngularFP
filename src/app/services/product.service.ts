@@ -1,5 +1,3 @@
-import { bindPlayerFactory } from '@angular/core/src/render3/styling/player_factory';
-
 export class Product {
   constructor(
     public id: number,
