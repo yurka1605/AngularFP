@@ -15,10 +15,11 @@ import { StarsComponent } from './components/stars/stars.component';
 import { _404NotFoundComponent } from './components/404NotFound/404NotFound.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProductDetailComponent } from './components/product-item/product-details/product-details.component';
-
-import { ProductService } from './services/product.service';
 import { ProductSearchComponent } from './components/product-item/product-search/product-search.component';
 import { PrivateChatComponent } from './components/private-chat/private-chat.component';
+
+import { ProductService } from './services/product.service';
+import { ChatsService } from './services/chat.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { PrivateChatComponent } from './components/private-chat/private-chat.com
   ],
   providers: [
     ProductService,
+    ChatsService,
     {
       provide: APP_BASE_HREF,
       useValue: '/'

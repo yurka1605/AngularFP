@@ -1,6 +1,7 @@
 import { Product, ProductService } from '../../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ChatsService, UserChat } from 'src/app/services/chat.service';
 
 @Component({
     selector: 'app-auction-product-page',
@@ -14,6 +15,7 @@ export class ProductDetailComponent implements OnInit {
         private route: ActivatedRoute,
         private productService: ProductService,
         private router: Router,
+        private userChats: ChatsService,
     ) { }
 
     ngOnInit() {
@@ -26,13 +28,16 @@ export class ProductDetailComponent implements OnInit {
         });
     }
 
-    createPrivateChat(user) {
-        let chats = this.userChats.get();
-        chats = chats.private.filter(chat => chat.user === user);
-        if (chats) {
-            this.router.navigate(['chat', 'private', chats[0].id]);
-            return;
+    loadChat(user: string) {
+        user = user.toLocaleLowerCase();
+        let currentChat = this.userChats.getPrivate(user);
+        if (!currentChat) {
+            currentChat = this.createPrivateChat(user);
         }
-        // chats[0].id : crypto.getRandomValues(new Uint32Array(1));
+        this.router.navigate(['chat', 'private', currentChat.id]);
+    }
+
+    createPrivateChat(user: string): UserChat {
+        return this.userChats.addPrivateChat(user);  
     }
 }
