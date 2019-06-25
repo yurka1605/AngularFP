@@ -1,11 +1,8 @@
-<section style="display: flex; flex-wrap: wrap;">
-        <div>
-                <h2>{{ currentProduct.title }}</h2>
-                <img src="http://placehold.it/{{ 120*(currentProduct.id+1) }}x320">
+<div class="card" style="width: 100%">
+        <img class="card-img-top" src="https://via.placeholder.com/800x400/FFFF00/000000?text={{ currentProduct.title }}" alt="Card image cap">
+        <div class="card-body">
+                <h5 class="card-title">{{ currentProduct.title }}</h5>
+                <p class="card-text">{{ currentProduct.description }}</p>
+                <a href="javascript:void(0)" (click)="createPrivateChat()">{{ currentProduct.seller }}</a>
         </div>
-        <div class="descr" style="width: 200px">
-                <a href="javascript:void(0)" (click)="loadChat(currentProduct.seller)">{{ currentProduct.seller }}</a>
-                <h4>Aboute product</h4>
-                <div>{{ currentProduct.description }}</div>
-        </div>
-</section>
+</div>
