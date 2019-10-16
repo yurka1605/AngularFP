@@ -38,13 +38,9 @@ export class _404NotFoundComponent implements OnInit {
           clearInterval(loop);
           selector.textContent = textNum;
       } else {
-          selector.textContent = this.randomNum();
+          selector.textContent = Math.floor(Math.random() * 9) + 1;
           i++;
       }
     }, 30);
-  }
-
-  randomNum() {
-    return Math.floor(Math.random() * 9) + 1;
   }
 }
