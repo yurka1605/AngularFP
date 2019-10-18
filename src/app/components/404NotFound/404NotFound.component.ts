@@ -4,6 +4,7 @@ import {
   ElementRef,
   ViewChild,
 } from '@angular/core';
+import { elementClassProp } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-auction-not-found',
@@ -22,23 +23,23 @@ export class _404NotFoundComponent implements OnInit {
   }
 
   ngOnInit() {
-    const selector1 = this.firstDigit.nativeElement;
-    const selector2 = this.secondDigit.nativeElement;
-    const selector3 = this.thirdDigit.nativeElement;
-
-    this.timerNum(selector1, 4, 100);
-    this.timerNum(selector2, 0, 80);
-    this.timerNum(selector3, 4, 40);
+    [
+      [this.firstDigit.nativeElement, 4, 60],
+      [this.secondDigit.nativeElement, 0, 50],
+      [this.thirdDigit.nativeElement, 4, 40]
+    ].forEach(el => {
+      this.timerNum(el);
+    });
   }
 
-  timerNum(selector, textNum, inum) {
+  timerNum(args) {
     let i = 0;
     const loop = setInterval(_ => {
-      if (i > inum) {
+      if (i > args[2]) {
           clearInterval(loop);
-          selector.textContent = textNum;
+          args[0].textContent = args[1];
       } else {
-          selector.textContent = Math.floor(Math.random() * 9) + 1;
+          args[0].textContent = Math.floor(Math.random() * 9) + 1;
           i++;
       }
     }, 30);
