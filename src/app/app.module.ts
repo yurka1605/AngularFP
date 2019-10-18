@@ -2,13 +2,16 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { ApplicationComponent } from './components/application/application.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { HeaderComponent } from './components/application/header/header.component';
+import { NavbarComponent } from './components/application/header/navbar/navbar.component';
+import { SearchHeaderComponent } from './components/application/header/search/search.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { SearchComponent } from './components/search/search.component';
 import { StarsComponent } from './components/stars/stars.component';
@@ -20,6 +23,7 @@ import { PrivateChatComponent } from './components/private-chat/private-chat.com
 
 import { ProductService } from './services/product.service';
 import { ChatsService } from './services/chat.service';
+import { SearchService } from './services/search.service';
 
 @NgModule({
   declarations: [
@@ -27,11 +31,13 @@ import { ChatsService } from './services/chat.service';
     ApplicationComponent,
     HomeComponent,
     CarouselComponent,
+    HeaderComponent,
     FooterComponent,
     NavbarComponent,
     ProductItemComponent,
     ProductDetailComponent,
     SearchComponent,
+    SearchHeaderComponent,
     StarsComponent,
     _404NotFoundComponent,
     ProductSearchComponent,
@@ -40,10 +46,13 @@ import { ChatsService } from './services/chat.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [
-    ProductService,
+    // { token, recipe }
+    ProductService, // -короткая запись
+    SearchService,
     ChatsService,
     {
       provide: APP_BASE_HREF,
