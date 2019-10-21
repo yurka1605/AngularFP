@@ -2,7 +2,7 @@
 <ul class="navbar-nav mr-auto">
   <ng-container *ngFor="let page of pages; let i = index">
     <li class="nav-item active" [class.active]="i===0">
-      <a class="nav-link" href="page.url">{{page.name}}
+      <a class="nav-link" href="{{page.url}}">{{page.name}}
         <span *ngIf="i===0" class="sr-only">(current)</span>
       </a>
     </li>
