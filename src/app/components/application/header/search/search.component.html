@@ -1,18 +1,24 @@
 <form class="form-inline">
   <input 
     class="form-control mr-sm-2"
+    [class.br-0]="showResults"
     type="search"
     placeholder="Search"
     aria-label="Search"
     (focus)="onFocus()"
-    (input)="onInput($event); showResults === true;"
+    (input)="onInput($event)"
+    (blur)="closeList()"
   >
-  <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+  <ng-container *ngIf="showResults">
+    <div class="form-control search__results">
+      <ul class="search__list">
+        <li 
+          *ngFor="let country of sortCountries"
+          class="search__item"
+          (click)="findCountryThours(country)"
+        >{{ country.name }}</li>
+      </ul>
+    </div>
+  </ng-container>
 </form>
-<ng-container *ngIf="showResults === true">
-  <div style="width: 100px; height: auto;">
-    <ul *ngFor="let country of sortCountries">
-      <li style="margin-bottom: 10px;">{{ country.name }}</li>
-    </ul>
-  </div>
-</ng-container>
+

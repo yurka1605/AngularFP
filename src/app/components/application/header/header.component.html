@@ -7,7 +7,7 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01" style="justify-content: space-between;">
       <app-auction-navbar></app-auction-navbar>
-      <app-auction-nav-search></app-auction-nav-search>
+      <app-auction-nav-search (itemClick)="itemClick.emit($event)"></app-auction-nav-search>
     </div>
   </div>
 </nav>
