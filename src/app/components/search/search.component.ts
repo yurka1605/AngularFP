@@ -11,12 +11,13 @@ export class SearchData {
 @Component({
   selector: 'app-auction-search',
   templateUrl: './search.component.html',
-  styles: ['.cap{ text-transform: capitalize }'],
+  styleUrls: ['./search.component.scss'],
 })
 
 export class SearchComponent implements OnInit {
   public category: string[] = [];
   public data: SearchData = new SearchData();
+  public departureCity = 'Москва';
 
   constructor(private productService: ProductService, private router: Router) {
   }

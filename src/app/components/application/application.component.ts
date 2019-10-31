@@ -1,4 +1,6 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { SearchDataCountry } from './header/search/search.component';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -8,10 +10,10 @@ import { Component } from '@angular/core';
 })
 export class ApplicationComponent {
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
-  showThours(event) {
-    console.log(event);
+  showThours(searchData: SearchDataCountry) {
+    this.router.navigate(['/search'], { queryParams: searchData.country });
   }
 }

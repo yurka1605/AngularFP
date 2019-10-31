@@ -1,3 +1,4 @@
+import { SearchDataCountry } from './search/search.component';
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -5,7 +6,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  @Output() itemClick = new EventEmitter<boolean>();
+  @Output() itemClick = new EventEmitter<SearchDataCountry>();
 
   constructor() {}
 }

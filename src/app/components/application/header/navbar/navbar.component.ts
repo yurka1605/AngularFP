@@ -9,20 +9,20 @@ export class NavbarComponent {
 
   pages = [
     {
-      name: 'Home',
-      url: '/'
+      name: 'Дешевые туры',
+      url: '/cheap-tours'
     },
     {
-      name: 'Features',
-      url: '/features'
+      name: 'Расширенный поиск',
+      url: '/advance-search'
     },
     {
-      name: 'Pricing',
-      url: '/pricing'
+      name: 'Сотрудничество',
+      url: '/сooperation'
     },
     {
-      name: 'About',
-      url: '/aboute'
+      name: 'O нас',
+      url: '/about'
     }
   ];
 
