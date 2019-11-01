@@ -1,0 +1,9 @@
+<div [style.border-color]="borderColor" class="form-control search__results">
+  <ul class="search__list">
+    <li 
+      *ngFor="let item of list"
+      class="search__item"
+      (click)="itemClick.emit(item)"
+    >{{ item.name }}</li>
+  </ul>
+</div>

@@ -12,8 +12,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/application/header/header.component';
 import { NavbarComponent } from './components/application/header/navbar/navbar.component';
 import { SearchHeaderComponent } from './components/application/header/search/search.component';
+import { SearchListComponent } from './components/application/header/search/list/list.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { SearchComponent } from './components/search/search.component';
+import { InputGroupComponent } from './components/search/input-drop/input-drop.component';
 import { StarsComponent } from './components/stars/stars.component';
 import { _404NotFoundComponent } from './components/404NotFound/404NotFound.component';
 import { HomeComponent } from './components/home/home.component';
@@ -37,6 +39,8 @@ import { SearchService } from './services/search.service';
     ProductItemComponent,
     ProductDetailComponent,
     SearchComponent,
+    SearchListComponent,
+    InputGroupComponent,
     SearchHeaderComponent,
     StarsComponent,
     _404NotFoundComponent,

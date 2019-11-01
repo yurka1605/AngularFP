@@ -1,12 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SearchService, TravelCountry, Thour } from '../../../../services/search.service';
 
-export class SearchData {
-  title: string;
-  price: number;
-  category: string;
-}
-
 export interface SearchDataCountry {
   markedData: Thour[];
   country: TravelCountry;

@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { SearchDataCountry } from './header/search/search.component';
+import { SearchData } from '../search/search.component';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -8,12 +9,28 @@ import { SearchDataCountry } from './header/search/search.component';
   templateUrl: './application.component.html',
   styleUrls: ['./application.component.scss'],
 })
-export class ApplicationComponent {
+export class ApplicationComponent implements OnInit {
 
-  constructor(private router: Router) {
+  public searchData = {
+    departureCity: 'Москва',
+    countryVisited: '',
+    startDate: '',
+    endDate: '',
+    tourists: '',
+  };
+
+  constructor(
+    private router: Router,
+    private cdr: ChangeDetectorRef,
+    ) {
   }
 
-  showThours(searchData: SearchDataCountry) {
-    this.router.navigate(['/search'], { queryParams: searchData.country });
+  ngOnInit() {
+  }
+
+  showThours(searchDatas: SearchDataCountry) {
+    this.router.navigate(['/search'], { queryParams: searchDatas.country });
+    this.searchData.countryVisited = searchDatas.country.name;
+    this.cdr.markForCheck();
   }
 }

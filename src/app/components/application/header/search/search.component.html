@@ -1,6 +1,6 @@
 <form class="form-inline">
   <input 
-    class="form-control mr-sm-2"
+    class="form-control"
     [class.br-0]="showResults"
     type="search"
     placeholder="Search"
@@ -9,16 +9,11 @@
     (input)="onInput($event)"
     (blur)="closeList()"
   >
-  <ng-container *ngIf="showResults">
-    <div class="form-control search__results">
-      <ul class="search__list">
-        <li 
-          *ngFor="let country of sortCountries"
-          class="search__item"
-          (click)="findCountryThours(country)"
-        >{{ country.name }}</li>
-      </ul>
-    </div>
-  </ng-container>
+  <app-search-list
+    *ngIf="showResults"
+    [borderColor]="'#80bdff'"
+    [list]="sortCountries"
+    (itemClick)="findCountryThours($event)"
+  ></app-search-list>
 </form>
 

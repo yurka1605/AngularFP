@@ -2,12 +2,16 @@
   <header>
     <app-auction-header (itemClick)="showThours($event);"></app-auction-header>
   </header>
-  <section class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <app-auction-search></app-auction-search>
+  <section class="search-background">
+    <section class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <app-auction-search [searchData]="searchData"></app-auction-search>
+        </div>
       </div>
-    </div>
+    </section>
+  </section>
+  <section class="container">
     <div class="row">
       <div class="col-md-12">
         <router-outlet></router-outlet>
