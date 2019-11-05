@@ -1,12 +1,19 @@
 import { TravelCountry } from './search.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NumberValueAccessor } from '@angular/forms/src/directives';
 
 export interface TravelCountry {
   id: number;
   name: string;
   popular: number;
+}
+
+export interface StartCity {
+   id: number;
+   name: string;
+   isPopular: boolean;
+   countryId: number;
+   atFiltering: boolean;
 }
 
 export interface Thour {

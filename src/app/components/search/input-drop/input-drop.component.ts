@@ -12,11 +12,10 @@ import {
 
 export class InputGroupComponent implements OnInit {
 
-  value = '';
-  public showParams: false;
+  @Input() showParams = false;
   @Input() label: string;
   @Input() placeholder: string;
-  @Input() inputValue: any;
+  @Input() inputValue = '';
 
   constructor() {
   }

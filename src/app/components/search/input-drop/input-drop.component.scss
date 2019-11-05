@@ -41,6 +41,8 @@
   border-bottom-right-radius: 4px;
   padding: 10px;
   position: absolute;
-  z-index: 9;
-  width: 100%;
+  z-index: 99999;
+  width: 150%;
+  max-height: 300px;
+  overflow: auto;
 }

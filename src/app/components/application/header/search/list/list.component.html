@@ -1,9 +1,12 @@
 <div [style.border-color]="borderColor" class="form-control search__results">
-  <ul class="search__list">
+  <ul *ngIf="list; else notFound" class="search__list">
     <li 
       *ngFor="let item of list"
       class="search__item"
       (click)="itemClick.emit(item)"
     >{{ item.name }}</li>
   </ul>
+  <ng-template #notFound>
+    <span class="search__not-found">Ничего не найдено</span>
+  </ng-template>
 </div>

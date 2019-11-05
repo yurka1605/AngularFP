@@ -15,8 +15,11 @@
   font-size: 14px;
 }
 .departure-city {
+  border: 0;
+  outline: none;
   border-bottom: 1px dashed blue;
   cursor: pointer;
+  height: 20px;
 }
 .svg-control {
   height: 17px;
@@ -41,4 +44,18 @@
 }
 .search__input_people {
   width: 10%;
+}
+
+.country-check-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.country-label {
+  width: calc(100% - 25px); 
+}
+
+.country-input {
+  width: 20px;
+  margin-right: 5px;
 }
