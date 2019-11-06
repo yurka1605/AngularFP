@@ -59,3 +59,19 @@
   width: 20px;
   margin-right: 5px;
 }
+
+:host ::ng-deep {
+  p-calendar {
+    .ui-datepicker {
+      border: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    .ui-datepicker table td {
+      padding: 0;
+      a {
+        border-radius: 0;
+      }
+    }
+  }
+}

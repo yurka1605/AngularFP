@@ -4,6 +4,8 @@ import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CalendarModule } from 'primeng/calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { ApplicationComponent } from './components/application/application.component';
@@ -48,9 +50,11 @@ import { SearchService } from './services/search.service';
     PrivateChatComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CalendarModule,
     HttpClientModule,
   ],
   providers: [

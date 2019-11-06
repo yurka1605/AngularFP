@@ -1,7 +1,7 @@
 <div
   class="form-group"
   [class.active]="showParams"
-  (click)="control.focus(); showParams = !showParams;"
+  (click)="clickControl(control)"
 >
   <div style="margin-right: 10px; margin-top: -0.6rem;">
     <ng-content select="[icon]"></ng-content>
@@ -13,12 +13,13 @@
       class="form-control"
       [class.active]="showParams"
       type="text"
+      [readonly]="readonly"
       [placeholder]="placeholder"
       [value]="inputValue">
   </div>
 </div>
 <ng-container *ngIf="showParams">
-  <div class="advanced-params">
+  <div class="advanced-params" [class.custom-advanced]="customClass">
     <ng-content select="[advancedParams]"></ng-content>
   </div>
 </ng-container>

@@ -11,7 +11,7 @@ export class SearchListComponent implements OnInit {
 
   @Input() borderColor: string;
   @Input() list: TravelCountry[];
-  @Output() itemClick = new EventEmitter();
+  @Output() itemClick = new EventEmitter<TravelCountry>();
 
   constructor() {
   }
