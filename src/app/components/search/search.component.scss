@@ -60,6 +60,29 @@
   margin-right: 5px;
 }
 
+.advanced-params_night {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 18px;
+  line-height: 22px;
+}
+.range-nigth-title {
+  padding-top: 10px;
+  .buttons-night {
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 5px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #007ad9;
+  }
+}
 :host ::ng-deep {
   p-calendar {
     .ui-datepicker {

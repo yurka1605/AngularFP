@@ -61,6 +61,7 @@ export class SearchComponent implements OnInit {
   public popularCounytriesList: TravelCountry[];
   public otherCounytriesList: TravelCountry[];
   public inputDatesRange = '';
+  public nightRange: number[] = [3, 10];
 
   @Input() searchData: SearchData;
   @ViewChild('input') inputCity: ElementRef;
@@ -148,19 +149,39 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  dateRangeChenges(event: Date[]): void {
-    const start = event[0];
-    const end = event[1];
-    if (start !== null) {
-      this.inputDatesRange = this.searchData.startDate =
-        `${ start.getFullYear() }.${ start.getDay() }.${ start.getMonth() + 1}`;
-    }
+  dateRangeChanges(event: Date[]): void {
+    this.inputDatesRange = '';
+    event.forEach((date: Date, i: number) => {
+      if (date !== null) {
+        const year = date.getFullYear();
+        const day = date.getDay();
+        const month = date.getMonth() + 1;
+        if (i === 0) {
+          this.inputDatesRange += `${ day}.${ month }.${ year }`;
+          this.searchData.startDate = `${ year }-${ day }-${ year }`;
+        } else {
+          this.inputDatesRange += ` - ${ day}.${ month }.${ year }`;
+          this.searchData.endDate = `${ year }-${ day }-${ year }`;
+        }
+      }
+    });
+  }
 
-    if (end !== null) {
-      this.searchData.endDate =
-        `${ end.getFullYear() }.${ end.getDay() }.${ end.getMonth() + 1}`;
-      this.inputDatesRange = `${ this.inputDatesRange } - ${ this.searchData.endDate }`;
+  changeNightRange(num: number, isPlus: boolean): number {
+    if (num === 0) {
+      if (!isPlus) {
+        this.nightRange[0] -= this.nightRange[0] > 1 ? 1 : 0;
+      } else {
+        this.nightRange[0] += this.nightRange[0] < this.nightRange[1] - 1 ? 1 : 0;
+      }
+    } else {
+      if (!isPlus) {
+        this.nightRange[1] -= this.nightRange[1] > this.nightRange[0] + 1 ? 1 : 0;
+      } else {
+        this.nightRange[1] += this.nightRange[1] < 30 ? 1 : 0;
+      }
     }
+    return num;
   }
 
   searchThors() {

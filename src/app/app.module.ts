@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CalendarModule } from 'primeng/calendar';
+import { SliderModule } from 'primeng/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -55,6 +56,7 @@ import { SearchService } from './services/search.service';
     AppRoutingModule,
     FormsModule,
     CalendarModule,
+    SliderModule,
     HttpClientModule,
   ],
   providers: [
