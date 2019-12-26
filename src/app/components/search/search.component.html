@@ -11,6 +11,7 @@
     maxlength="50"
     [value]="value"
     (focus)="value=$event.target.value=''"
+    (blur)="toggleList(input);"
     (keydown.enter)="toggleList(input);openCloseParams('isShowCities');"
     (input)="onInput($event)"
   >
@@ -99,13 +100,35 @@
         [(ngModel)]="nightRange"
       ></p-slider>
       <div class="range-nigth-title">
-        от <span (click)="changeNightRange(0, false)" class="buttons-night">-</span>
+        от 
+        <button 
+          class="buttons-night"
+          [class.disabled]="nightRange[0] === 1" 
+          type="button" 
+          (click)="changeNightRange(0, false)"
+        >-</button>
         {{ nightRange[0] }}
-        <span (click)="changeNightRange(0, true)" class="buttons-night">+</span> 
+        <button
+          class="buttons-night"
+          [class.disabled]="nightRange[0] + 1 === nightRange[1]" 
+          type="button" 
+          (click)="changeNightRange(0, true)"
+        >+</button> 
         {{ nightRange[0] === 1 ? 'ночи' : 'ночей'}}
-        до <span (click)="changeNightRange(1, false)" class="buttons-night">-</span>
+        до 
+        <button 
+          class="buttons-night"
+          [class.disabled]="nightRange[0] + 1 === nightRange[1]" 
+          type="button" 
+          (click)="changeNightRange(1, false)"
+        >-</button>
         {{ nightRange[1] }}
-        <span (click)="changeNightRange(1, true)" class="buttons-night">+</span> ночей
+        <button 
+          class="buttons-night"
+          [class.disabled]="nightRange[0] === 30" 
+          type="button" 
+          (click)="changeNightRange(1, true)"
+        >+</button> ночей
       </div>
     </div>
   </app-input-drop>
@@ -114,12 +137,17 @@
     [label]="'Туристы'"
     [placeholder]="'Количество человек'"
     [inputValue]=""
+    [readonly]="true"
     [showParams]="isShowLists.isShowTourists"
     (itemChange)="isShowLists.isShowTourists = $event; openCloseParams('isShowTourists');"
   >
     <svg icon class="svg-control" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
       <path fill="#6495ED" d="M256 288c79.5 0 144-64.5 144-144S335.5 0 256 0 112 64.5 112 144s64.5 144 144 144zm128 32h-55.1c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16H128C57.3 320 0 377.3 0 448v16c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48v-16c0-70.7-57.3-128-128-128z"></path>
     </svg>
+    <div advancedParams class="advanced-params__tourists">
+      <svg class="tourists__grown" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path fill="#000000" d="M198.746 140.274C209.582 125.647 216 107.56 216 88c0-48.523-39.477-88-88-88S40 39.477 40 88c0 19.56 6.418 37.647 17.254 52.274C28.585 150.478 8 177.873 8 210v105c0 24.74 17.041 45.576 40 51.387V459c0 29.224 23.776 53 53 53h54c29.224 0 53-23.776 53-53v-92.613c22.959-5.812 40-26.647 40-51.387V210c0-32.127-20.585-59.522-49.254-69.726zM128 32c30.928 0 56 25.072 56 56s-25.072 56-56 56-56-25.072-56-56 25.072-56 56-56zm88 283c0 11.598-9.402 21-21 21h-19v123c0 11.598-9.402 21-21 21h-54c-11.598 0-21-9.402-21-21V336H61c-11.598 0-21-9.402-21-21V210c0-23.196 18.804-42 42-42h9.36c22.711 10.443 49.59 10.894 73.28 0H174c23.196 0 42 18.804 42 42v105z"></path></svg>
+      <svg class="tourists__baby" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="#000000" d="M374.2 160.3c-17.4-25.2-52-32.1-77.9-14.5l-36.4 25c-29.4 20.2-86 34.3-135.9 0l-36.4-25C61.9 128.2 27.2 135 9.8 160.3c-17.5 25.5-11 60.4 14.4 77.9l36.4 24.9c10.9 7.5 22.8 14.1 35.4 19.8v22.6l-54.3 56.2c-19.2 17.8-23.5 46.4-10 69.3L70 487.1c10.3 15.4 27.9 24.9 46.6 24.9 10 0 19.8-2.7 28.4-7.8 13-7.7 52.3-40.5 2-96.5l18.4-11.6c15.1 5.3 37.9 5.3 53.1 0l18.4 11.6c-50.3 56-11 88.8 2 96.5 8.6 5.1 18.4 7.8 28.4 7.8 18.7 0 36.2-9.5 46.6-24.9l38.3-56.1c13.5-22.9 9.1-51.5-10-69.3L288 305.5v-22.6c12.6-5.6 24.4-12.3 35.4-19.8l36.4-24.9c25.4-17.5 31.9-52.5 14.4-77.9zm-237 283.5c6.7 11.4 2.9 26.1-8.5 32.9-3.8 2.3-8 3.3-12.2 3.3-8.2 0-16.2-4.2-20.7-11.8l-36.6-53.4c-6-10.2-3.7-23.3 5.5-30.8l38.8-41.2c.7.8 1 1.8 1.7 2.6l35.2 35.2-29.4 27.7 26.2 35.5zm82.9-85.2c-13.2 13.2-43.5 12.8-56.2 0L128 322.7V312h128v10.7l-35.9 35.9zm99.1 25.4c9.2 7.5 11.5 20.6 5.5 30.8l-36.6 53.4c-4.5 7.6-12.5 11.8-20.7 11.8-4.1 0-8.3-1.1-12.2-3.3-11.4-6.7-15.2-21.5-8.5-32.9l26.1-35.6-29.4-27.7 35.2-35.2c.7-.7 1.1-1.8 1.7-2.6l38.9 41.3zm22.4-172.2l-36.3 24.9c-15.4 10.5-32 18.5-49.3 24.4V280H128v-18.9c-17.3-5.9-33.9-13.8-49.3-24.4l-36.3-24.9c-26.4-18.2 1.2-57.3 27.2-39.6l36.3 24.9c47.2 32.4 117.3 37.7 172.1 0l36.3-24.9c26.1-17.7 53.7 21.4 27.3 39.6zM192 160c44.2 0 80-35.8 80-80S236.2 0 192 0s-80 35.8-80 80 35.8 80 80 80zm0-128c26.5 0 48 21.5 48 48s-21.5 48-48 48-48-21.5-48-48 21.5-48 48-48z"></path></svg>
+    </div>
   </app-input-drop>
   <div class="form-group save-button">
     <button

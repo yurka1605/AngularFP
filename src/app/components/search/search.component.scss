@@ -71,10 +71,16 @@
 .range-nigth-title {
   padding-top: 10px;
   .buttons-night {
+    position: relative;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+    line-height: 1;
+    border: 0;
     cursor: pointer;
-    margin: 0 5px;
+    margin: 0 3px;
+    padding: 0;
     display: inline-block;
     width: 25px;
     height: 25px;
@@ -82,7 +88,45 @@
     border-radius: 50%;
     background-color: #007ad9;
   }
+  .buttons-night.disabled {
+    cursor: not-allowed;
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      opacity: 0.8;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      background-color: #00467c;
+    }
+  }
 }
+
+.advanced-params__tourists {
+  display: flex;
+  align-items: flex-end;
+}
+.tourists__grown {
+  cursor: pointer;
+  height: 50px;
+}
+.tourists__baby {
+  cursor: pointer;
+  height: 30px;
+  margin: 0 15px;
+}
+.tourists__baby path,
+.tourists__grown path {
+  transition: all 0.3s linear;
+  fill: #6495ED;
+}
+.tourists__baby:hover path,
+.tourists__grown:hover path {
+  fill: rgb(12, 43, 99);
+}
+
 :host ::ng-deep {
   p-calendar {
     .ui-datepicker {

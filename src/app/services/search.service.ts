@@ -1,4 +1,3 @@
-import { TravelCountry } from './search.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -40,10 +39,10 @@ export interface Thour {
 @Injectable()
 export class SearchService {
 
-  private contriesGetURL = 'http://api-gateway.travelata.ru/directory/countries';
-  private contriesGetResorts = 'http://api-gateway.travelata.ru/directory/resorts';
-  private contriesGetHotels = 'http://api-gateway.travelata.ru/directory/resortHotels?resortId=';
-  private contriesGetHotelsCategory = 'http://api-gateway.travelata.ru/directory/hotelCategories';
+  private contriesGetURL = 'https://api-gateway.travelata.ru/directory/countries';
+  private contriesGetResorts = 'https://api-gateway.travelata.ru/directory/resorts';
+  private contriesGetHotels = 'https://api-gateway.travelata.ru/directory/resortHotels?resortId=';
+  private contriesGetHotelsCategory = 'https://api-gateway.travelata.ru/directory/hotelCategories';
   private DEPARTURE_CITY = [
       {
          id: 90,
@@ -368,6 +367,6 @@ export class SearchService {
          .filter(item => item.city.toLocaleLowerCase() === city.toLocaleLowerCase());
       city = items.length ? items[0].city : '2';
       return `&departureCity=${ city }`;
-      //   return this._HTTP.get('http://api.ipstack.com?access_key=a14305b98106c2cfa1b03b5173174b73');
+      //   return this._HTTP.get('https://api.ipstack.com?access_key=a14305b98106c2cfa1b03b5173174b73');
   }
 }
