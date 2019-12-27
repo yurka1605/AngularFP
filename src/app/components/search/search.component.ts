@@ -16,6 +16,11 @@ export interface SearchData {
   tourists: number;
 }
 
+export interface AmountThourists {
+  grown: number;
+  childs: number;
+}
+
 @Component({
   selector: 'app-auction-search',
   templateUrl: './search.component.html',
@@ -62,6 +67,10 @@ export class SearchComponent implements OnInit {
   public otherCounytriesList: TravelCountry[];
   public inputDatesRange = '';
   public nightRange: number[] = [3, 10];
+  public amountTourist: AmountThourists = {
+    grown: 2,
+    childs: 0
+  };
 
   @Input() searchData: SearchData;
   @ViewChild('input') inputCity: ElementRef;
@@ -182,6 +191,14 @@ export class SearchComponent implements OnInit {
       }
     }
     return num;
+  }
+
+  plusPeople(isGrown: boolean) {
+    if (isGrown && this.amountTourist.grown < 4) {
+      this.amountTourist.grown++;
+    } else if (!isGrown && this.amountTourist.childs < 3) {
+      this.amountTourist.childs++;
+    }
   }
 
   searchThors() {
