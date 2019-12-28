@@ -11,7 +11,6 @@
     maxlength="50"
     [value]="value"
     (focus)="value=$event.target.value=''"
-    (blur)="toggleList(input);"
     (keydown.enter)="toggleList(input);openCloseParams('isShowCities');"
     (input)="onInput($event)"
   >
@@ -178,18 +177,21 @@
 <ng-template #countriesList let-list="list" let-label="label">
   <div>{{ label }}</div>
   <ul class="country-check-list">
-    <li (click)="checkboxClick(checkbox)" *ngFor="let item of list">
-      <input
-        #checkbox
-        class="country-input"
-        type="radio"
-        name="country"
-        [id]="item.id"
-        [value]="item.name"> 
-      <label 
+    <li *ngFor="let item of list">
+      <label
+        (click)="checkboxClick(checkbox)"
         class="country-label"
         [for]="item.id"
-      >{{ item.name }}</label>
+      >
+        <input
+          #checkbox
+          class="country-input"
+          type="radio"
+          name="country"
+          [id]="item.id"
+          [value]="item.name"> 
+          {{ item.name }}
+      </label>
     </li>
   </ul>
 </ng-template>

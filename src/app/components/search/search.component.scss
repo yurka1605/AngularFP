@@ -34,16 +34,16 @@
 }
 .search__input {
   position: relative;
-}
-.search__input_country,
-.search__input_date {
-  width: 22.5%;
-}
-.search__input_nigth {
-  width: 25%;
-}
-.search__input_people {
-  width: 10%;
+  &_country,
+  &_date {
+    width: 22.5%;
+  }
+  &_nigth {
+    width: 25%;
+  }
+  &_people {
+    width: 10%;
+  }
 }
 
 .country-check-list {
@@ -52,7 +52,8 @@
   margin: 0;
 }
 .country-label {
-  width: calc(100% - 25px); 
+  margin-bottom: 0;
+  padding-bottom: .5rem;
 }
 
 .country-input {
@@ -108,23 +109,25 @@
   display: flex;
   align-items: flex-end;
 }
-.tourists__grown {
-  cursor: pointer;
-  height: 50px;
-}
-.tourists__baby {
-  cursor: pointer;
-  height: 30px;
-  margin: 0 15px;
-}
-.tourists__baby path,
-.tourists__grown path {
-  transition: all 0.3s linear;
-  fill: #6495ED;
-}
-.tourists__baby:hover path,
-.tourists__grown:hover path {
-  fill: rgb(12, 43, 99);
+.tourists {
+  &__grown {
+    cursor: pointer;
+    height: 50px;
+  }
+  &__baby {
+    cursor: pointer;
+    height: 30px;
+    margin: 0 15px;
+  }
+  &__baby path,
+  &__grown path {
+    transition: all 0.3s linear;
+    fill: #6495ED;
+  }
+  &__baby:hover path, 
+  &__grown:hover path {
+    fill: rgb(12, 43, 99);
+  }
 }
 
 :host ::ng-deep {
